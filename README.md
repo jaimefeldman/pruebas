@@ -6,7 +6,6 @@ Usando __init__.py y __main__.py
 ## Instalación 
 
 Usando el administrador de paquetes de python `pip` 
-desnto del directorio preubas, ejecutar.
 ```bash
 > python3 setup sdist
 > pip install .
