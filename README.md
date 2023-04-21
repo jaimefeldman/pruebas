@@ -7,7 +7,7 @@ Usando __init__.py y __main__.py
 
 Usando el administrador de paquetes de python `pip` 
 ```bash
-> python3 setup sdist
+> python3 setup.py sdist
 > pip install .
 ```
 
