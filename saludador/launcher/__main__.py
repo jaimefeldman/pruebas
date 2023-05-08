@@ -1,15 +1,15 @@
-import sys, modulos
+import sys, saludador.modulos
 from termcolor import colored
 
 def main(args=None):
-    print("[ Inicio de la app de pruebas ]")
+    print("[", colored("Inicio de la app de pruebas", "green"), "]")
     print("* probando la organización de paquetes en python.")	
 
     # Creando objeto saluador.
-    saludo_obj = modulos.Saludador()
+    saludo_obj = saludador.modulos.Saludador()
 
     # Probando los modulos.
-    print("sumando 234 + 345 = ", modulos.suma(234, 345))	
+    print("sumando 234 + 345 = ", saludador.modulos.suma(234, 345))	
 
     if args is None:
         args = sys.argv[1:]
@@ -18,6 +18,8 @@ def main(args=None):
     if len(args) > 0:
         pass	
 
+    # intenando leer el archivo de resources/archivos/archivo.txt
+    saludador.modulos.read_file('textos/archivo.txt')    
 
 if __name__ == "__main__":
     exit(main())

@@ -1,19 +1,37 @@
 # Projecto pruebas en python
 
-Pretende demostrar la organización de un proyecto en python, con sus directorios y módulos.
-Usando __init__.py y __main__.py
+El proyecto prueba crea un paquete llamado `saludador` con le cuál se pretende crear un paquete de Python instalable en el sistema, que sea capaz de leer archivos que lleva en un subdirectorio llamado `resources/textos/archivo.txt` 
+
+### Aspectos técnicos 
+
+* dentro del proyecto debe existir un directorio con el nombre del paquete, en este caso `saludador`, dentro todos los subdirectorios del paquete como `launcher` `modulos` y `resources` cada directorio incluido saludador debe tener el archivo `__init__.py` para que Python lo considere un paquete válido y lo incluya en la compilación del paquete.
+
+* se crea un archivo en la raíz del proyecto `pruebas` llamado `MANIFEST.in` el cual indica donde están los subdirectorios y archivos que deben ser copiados en el paquete.
+
+Archivo MANIFEST.in:
+
+```
+recursive-include saludador/resources *
+```
+
+Luego es importante incluir en el archivo `setup.py`
+
+`include_package_data=True,`
+
+
 
 ## Instalación 
 
-Usando el administrador de paquetes de python `pip` 
-```bash
+### Dentro del direcotrio del proyecto pruebas ejecutar:
+```cmd
+crea el paquete:
 > python3 setup.py sdist
+
+Instala el paquete en el sistema.
 > pip install .
 ```
 
 ## Uso
-Una vez instalado el paquete con `pip install .` "si esta bien configurado el path de python y pip en el zshrc o bashrc" ejecutar
-`saludo` desde cualquier ruta en la terminal.
 
 
 ## Contribuciones
