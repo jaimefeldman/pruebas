@@ -10,23 +10,33 @@
     :license: MIT, see LICENSE for more details.
 """
 
-import requests
+import requests, time
 from termcolor import colored
-import saludador.modulos.animations as animation
+from halo import Halo
+
 
 def update():
     git_hub_url = 'https://api.github.com/repos/jaimefeldman/pruebas/releases/latest'
-
-    response = requests.get(git_hub_url)
-
-    animation.start()
     
+    spinner = Halo(text='Checking for updates...', text_color='cyan', color='yellow', spinner='dots')
+
+    try:
+        spinner.start() 
+        response = requests.get(git_hub_url)
+        time.sleep(3)
+    except (KeyboardInterrupt, SystemExit):
+        spinner.stop()
+        sys.exit(1)
+
     # Verifica si la solicitud fue exitosa.
     if response.status_code == 200:
         # Extrae información del la última versión.
         data = response.json()
         github_last_version = data['tag_name']
-        print("La última version desde github:", github_last_version)
+        spinner.succeed('the app is already updated!')
+        spinner.stop()
     else:
-        print(colored("Error", "red"), "al intentar conectar con github.com")
+
+        spinner.fail("Error: al intentar conectar con github.com")
+        spinner.stop()
 
