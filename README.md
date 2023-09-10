@@ -18,7 +18,8 @@ Luego es importante incluir en el archivo `setup.py`
 
 `include_package_data=True,`
 
-
+## Sistema de actualización
+Intentando crear el sistema de actualización con github
 
 ## Instalación 
 
