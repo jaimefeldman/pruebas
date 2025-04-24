@@ -1,5 +1,5 @@
 import sys 
-impor saludador.launcher as main_module
+import saludador.launcher as main_module
 import saludador.modulos.examples as examples
 import saludador.modulos.files as files
 import saludador.modulos.math  as calc
